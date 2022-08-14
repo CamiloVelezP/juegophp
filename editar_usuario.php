@@ -8,14 +8,25 @@ try {
         echo '{"codigo":400,"mensaje": "error intentando conectar","respuesta":""}';
     } else {
 
-        if (isset($_GET["nombre_usuario"])){
+
+        if (isset($_GET["nombre_usuario"]) &&
+            isset($_GET["pass"]) &&
+            isset($_GET["pass2"]) &&
+            isset($_GET["jugador"]) &&
+            isset($_GET["nivel"])){
 
 
             $nombre_usuario = $_GET["nombre_usuario"];
             $pass = $_GET["pass"];
+            $pass2 = $_GET["pass2"];
+            $jugador = $_GET["jugador"];
+            $nivel = $_GET["nivel"];
+
             $sql = "SELECT * FROM `usuarios` WHERE nombre_usuario = '".$nombre_usuario."' and pass ='".$pass."';";
             $resultado = $conn->query($sql);
             if ($resultado->num_rows > 0){
+                $sql = "UPDATE `usuarios` SET  `pass` = '".$pass2."', `jugador` = '".$jugador."', `nivel` = '".$nivel."' WHERE nombre_usuario = '".$nombre_usuario."';";
+                $conn->query($sql);
                 $sql = "SELECT * FROM `usuarios` WHERE nombre_usuario = '".$nombre_usuario."';";
                 $resultado = $conn->query($sql);
                 $texto = '';
@@ -29,7 +40,7 @@ try {
                     "}";
             }
                 //lo encuentra
-                echo '{"codigo":205,"mensaje": "inicio de sesion correcto","respuesta":"0"}';
+                echo '{"codigo":206,"mensaje": "Usuario editado con exito","respuesta":"'.$texto.'"}';
             }else {
                 echo '{"codigo":204,"mensaje": "el usuario o contraseña incorrectos","respuesta":"0"}';
             }

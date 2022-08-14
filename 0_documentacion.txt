@@ -5,6 +5,7 @@ Códigos de respuesta:
     203 : el usuario no existe
     204 : usuario o contraseña incorrecta
     205 : inicio de sesion correcto
+    206 : usuario editado con exito
 
     400 : error intentando conectar
     401 : error intentando crear el usuario
@@ -18,3 +19,4 @@ Usuo de las funcionalidades:
     registro_usuario(nombre_usuario,pass,jugador,nivel)
     verificar_usuario(usuario)
     login(usuario,pass)
+    editar_usuario(nombre_usuario,pass,pass2,jugador,nivel)
