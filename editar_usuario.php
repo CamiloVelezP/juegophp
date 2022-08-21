@@ -9,18 +9,18 @@ try {
     } else {
 
 
-        if (isset($_GET["nombre_usuario"]) &&
-            isset($_GET["pass"]) &&
-            isset($_GET["pass2"]) &&
-            isset($_GET["jugador"]) &&
-            isset($_GET["nivel"])){
+        if (isset($_POST["nombre_usuario"]) &&
+            isset($_POST["pass"]) &&
+            isset($_POST["pass2"]) &&
+            isset($_POST["jugador"]) &&
+            isset($_POST["nivel"])){
 
 
-            $nombre_usuario = $_GET["nombre_usuario"];
-            $pass = $_GET["pass"];
-            $pass2 = $_GET["pass2"];
-            $jugador = $_GET["jugador"];
-            $nivel = $_GET["nivel"];
+            $nombre_usuario = $_POST["nombre_usuario"];
+            $pass = $_POST["pass"];
+            $pass2 = $_POST["pass2"];
+            $jugador = $_POST["jugador"];
+            $nivel = $_POST["nivel"];
 
             $sql = "SELECT * FROM `usuarios` WHERE nombre_usuario = '".$nombre_usuario."' and pass ='".$pass."';";
             $resultado = $conn->query($sql);

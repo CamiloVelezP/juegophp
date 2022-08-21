@@ -8,11 +8,11 @@ try {
         echo '{"codigo":400,"mensaje": "error intentando conectar","respuesta":""}';
     } else {
 
-        if (isset($_GET["nombre_usuario"])){
+        if (isset($_POST["nombre_usuario"])){
 
 
-            $nombre_usuario = $_GET["nombre_usuario"];
-            $pass = $_GET["pass"];
+            $nombre_usuario = $_POST["nombre_usuario"];
+            $pass = $_POST["pass"];
             $sql = "SELECT * FROM `usuarios` WHERE nombre_usuario = '".$nombre_usuario."' and pass ='".$pass."';";
             $resultado = $conn->query($sql);
             if ($resultado->num_rows > 0){
