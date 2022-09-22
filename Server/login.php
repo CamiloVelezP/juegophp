@@ -29,7 +29,7 @@ try {
                     "}";
             }
                 //lo encuentra
-                echo '{"codigo":205,"mensaje": "inicio de sesion correcto","respuesta":"0"}';
+                echo '{"codigo":205,"mensaje": "inicio de sesion correcto","respuesta":"'.$texto.'"}';
             }else {
                 echo '{"codigo":204,"mensaje": "el usuario o contraseña incorrectos","respuesta":"0"}';
             }
